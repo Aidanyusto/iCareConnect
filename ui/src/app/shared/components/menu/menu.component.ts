@@ -22,7 +22,7 @@ import {
 import {
   getCurrentUserDetails,
   getUserAssignedLocations,
-} from "src/app/store/selectors/current-user.selectors";
+} from "src/app/store/selectors/current-user.selectors"; //get curent patient information 
 import { UserGet } from "src/app/shared/resources/openmrs";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
 import { LocationSelectModalComponent } from "src/app/shared/components/location-select-modal/location-select-modal.component";
@@ -122,7 +122,7 @@ export class MenuComponent implements OnInit {
       this.store.dispatch(initiateEncounterType());
     });
 
-    this.currentUser$ = this.store.select(getCurrentUserDetails);
+    this.currentUser$ = this.store.select(getCurrentUserDetails); //add current user details in claim form
     this.locationsForCurrentUser$ = this.store.select(getUserAssignedLocations);
     this.currentLocation$ = this.store.pipe(select(getCurrentLocation(false)));
     this.showPatientSearch$ = this.store.pipe(select(showSearchPatientOnMenu));
